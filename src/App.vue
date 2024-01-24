@@ -21,7 +21,7 @@ const estado = reactive({
 })
 
 
-const getTarefasPententes = () => {
+const getTarefasPendentes = () => {
   return estado.tarefas.filter(tarefa => !tarefa.finalizada);
 }
 
@@ -34,7 +34,7 @@ const getTarefasfiltradas = () => {
 
   switch (filtro) {
     case 'Pendentes':
-      return getTarefasPententes();
+      return getTarefasPendentes();
     case 'Finalizadas':
       return getTarefasFinalizadas();
     default:
@@ -47,7 +47,7 @@ const cadastraTarefa = () => {
         titulo: estado.tarefaTemp,
         finalizada: false,
       }
-      estado.tarefa.push(tarefaNova);
+      estado.tarefas.push(tarefaNova);
 }
 
 </script>
