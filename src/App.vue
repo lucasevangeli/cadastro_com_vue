@@ -33,9 +33,9 @@ const getTarefasfiltradas = () => {
   const {filtro } = estado;
 
   switch (filtro) {
-    case 'Pendentes':
+    case 'pendentes':
       return getTarefasPendentes();
-    case 'Finalizadas':
+    case 'finalizadas':
       return getTarefasFinalizadas();
     default:
       return estado.tarefas;  
@@ -48,6 +48,7 @@ const cadastraTarefa = () => {
         finalizada: false,
       }
       estado.tarefas.push(tarefaNova);
+      estado.tarefaTemp = '';
 }
 
 </script>
@@ -57,7 +58,7 @@ const cadastraTarefa = () => {
     <header class="p-5 mb-4 mt-4 bg-light rounded-3">
       <h1>Minhas tarefas</h1>
       <p>
-        você possui {{ getTarefasPententes().length }} tarefas pendentes
+        você possui {{ getTarefasPendentes().length }} tarefas pendentes
       </p>
     </header>
     <form @submit.prevent="cadastraTarefa">
