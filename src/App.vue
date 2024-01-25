@@ -64,7 +64,7 @@ const cadastraTarefa = () => {
     <form @submit.prevent="cadastraTarefa">
     <div class="row">
       <div class="col">
-        <input @change="evento => estado.tarefaTemp = evento.target.value" type="text" required placeholder="Digite a terefa" class="form-control">
+        <input :value="estado.tarefaTemp" @change="evento => estado.tarefaTemp = evento.target.value" type="text" required placeholder="Digite a terefa" class="form-control">
       </div>
       <div class="col-md-2">
         <button type="submit" class="btn btn-primary">Cadastrar</button>
@@ -80,7 +80,7 @@ const cadastraTarefa = () => {
     </form>
     <ul  class="list-group mt-4">
       <li class="list-group-item" v-for="tarefa in getTarefasfiltradas()">
-        <input @change="evento = tarefa.finalizada = evento.target.checked" :checked="tarefa.finalizada" :id="tarefa.titulo" type="checkbox">
+        <input @change="evento => tarefa.finalizada = evento.target.checked" :checked="tarefa.finalizada" :id="tarefa.titulo" type="checkbox">
         <label :class="{done: tarefa.finalizada}" class="ms-3" :for="tarefa.titulo">
           {{tarefa.titulo}}
         </label>
